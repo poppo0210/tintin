@@ -21,8 +21,8 @@ LINE_BOT_CHANNEL_ACCESS_TOKEN = os.environ["LINE_BOT_CHANNEL_TOKEN"]
 #環境変数からLINE Channel Secretを設定
 LINE_BOT_CHANNEL_SECRET = os.environ["LINE_BOT_CHANNEL_SECRET"]
 
-line_BOT_api = LineBotApi(LINE_BOT_CHANNEL_TOKEN)
-handler = WebhookHandler(LINE_BOT_CHANNEL_SECRET)
+line_BOT_api = LineBotApi(LINE_CHANNEL_TOKEN)
+handler = WebhookHandler(LINE_CHANNEL_SECRET)
 
 @app.route("/callback", methods=['POST'])
 def callback():
