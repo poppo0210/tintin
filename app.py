@@ -97,8 +97,6 @@ def callback():
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_text_message(event):
-    text = event.message.text
-    if text in ['おは']:
     line_bot_api.reply_message(
     event.reply_token,
     TextSendMessage(text="おはようございます！"))
