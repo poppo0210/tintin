@@ -45,9 +45,9 @@ def callback():
 def message_text(event):
     if "こんにちは" in event.message.text:
         content = "おはようございます。"
-    line_bot_api.reply_message(
-        event.reply_token,
-            TextSendMessage(text = content)
+        line_bot_api.reply_message(
+            event.reply_token,
+                TextSendMessage(text = content)
 
 
 
