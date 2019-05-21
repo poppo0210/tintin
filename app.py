@@ -12,10 +12,6 @@ from linebot.models import (
 import os
 
 app = Flask(__name__)
-talk = {
-    "hello":"こんにちは"
-    "2":"1"
-}
 
 #環境変数取得
 
