@@ -45,11 +45,10 @@ talk = {
 
 
 @handler.add(MessageEvent, message=TextMessage)
-def handle_text_message(event):
-    if event.message.text in talk:
-        line_bot_api.reply_message(
-            event.reply_token,
-            TextSendMessage(text=talk[event.massage.text] ))
+def handle_message(event):
+    line_bot_api.reply_message(
+    event.reply_token,
+    TextSendMessage(text=talk[event.massage.text] ))
 
 
 if __name__ == "__main__":
