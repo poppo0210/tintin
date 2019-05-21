@@ -47,8 +47,7 @@ def message_text(event):
         content = "おはようございます。"
     line_bot_api.reply_message(
         event.reply_token,
-            TextSendMessage(talk = content)
-    )
+            TextSendMessage(text = content)
 
 
 
