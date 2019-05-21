@@ -12,6 +12,10 @@ from linebot.models import (
 import os
 
 app = Flask(__name__)
+talk = {
+    "hello":"こんにちは"
+    "2":"1"
+}
 
 #環境変数取得
 
@@ -35,20 +39,14 @@ def callback():
         abort(400)
 
     return 'OK'
-# 辞書作り
-talk = {
-    "こんにちわ": "こんにちわ！"
-    "好きです":"私も///"
-    "おっぱい":"ちんこ！ちんこ！まんこ！"
-    "1":"2"
-}
 
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    line_bot_api.reply_message(
-    event.reply_token,
-    TextSendMessage(text=talk[event.massage.text] ))
+    if event.message.text in talk:
+        line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text=talk[event.massage.text] ))
 
 
 if __name__ == "__main__":
