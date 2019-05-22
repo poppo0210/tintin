@@ -14,6 +14,9 @@ import os
 app = Flask(__name__)
 
 #環境変数取得
+talk = {
+    "こんにちは":"こんにちは",
+}
 
 
 line_bot_api = LineBotApi('XXH3eq5CN3s7L0aoZm9ah70fwdg8uLncGNd7PuN9JSzzDMC7XWayg2vXSAZLno8nMlOCG00KmbJqt822AeYowRS1IrkoiV/k9aM1sIVfXTFIssq52IVyWpoKGeM/vrc14RtA6Dp8RGm38yJ0WizCEQdB04t89/1O/w1cDnyilFU=')
@@ -39,11 +42,10 @@ def callback():
 
 @handler.add(MessageEvent, message=TextMessage)
 def message_text(event):
-    if  "こんにちは" in event.message.text:
-        content = "おはようございます。"
+    if  event.message.text in talk:
         line_bot_api.reply_message(
             event.reply_token,
-                TextSendMessage(text = content)
+                TextSendMessage(text = talk[event.message.text])
         )
 
 
